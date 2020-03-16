@@ -1,0 +1,13 @@
+private static void selectionSort(short[] array , int length){
+  for(int i = 0; i< length-1 ; i++){
+    int indexLowest = i;
+    for(int j =i+1 ; j < length ; j++)
+      if (array[j]< array[array[indexLowest])
+         indexLowest = j;
+     if( array[indexLowest]!= array[i]){
+     short temp = array[incexLowest];
+     array[indexLowest]=array[i];
+     array[i] = temp;
+     }//if
+    }//for i
+   }// selectionSort
