@@ -2,16 +2,16 @@ private static int = inputFormFile(String filename , short[] number)
   TextFileInput in = new TextFileInput(filename);
   int lengthFilled =0;
   String line = in.readline();
-  while( lengthFilelled < number.length && line != null){
-  number[lengthFiled++] = Short.pasrseShort(line);
-  line = in.readLine();
+  while(lengthFilelled < number.length && line != null){
+   number[lengthFiled++] = Short.pasrseShort(line);
+   line = in.readLine();
   } // while
   
-  if(line != null) {
-  System.out.println("File contains too many numbers.")
-  System.out.println("This program can process only number . length + "numbers.");
-  System.exit(1);
-  }//if
+   if(line != null) {
+    System.out.println("File contains too many numbers.")
+    System.out.println("This program can process only number . length + "numbers.");
+    System.exit(1);
+   }//if
   in.close();
   return lengthFilled;
   } // method inputFromFile
