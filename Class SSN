@@ -2,11 +2,14 @@ public class SSN {
   static String ssn;                
   static String[] ssnList;
   public static void main(String[] args){
-   ssn = readSSN();
-   storeSSN(ssn, ssnList,ssnSize);          // main method 
-   printSSNList(ssnList, ssnSize);
+    initialize();
+    do{
+    ssn = readSSN();
+    storeSSN(ssn, ssnList,ssnSize);          // main method 
+    printSSNList(ssnList, ssnSize);
+   }
+  while (!ssn.equals("000000000"))
   }
-  
   public static String readSSN(){
     String ssn;
     ssn = (JoptionPane,showInputDialog(null,"Enter SSN:")); // make sure the ssn's length is 9
@@ -32,6 +35,13 @@ public class SSN {
       list[ssnSize++]=s;
   }
   public static void printSSNList(String[] list , int size){
+    if(!isValidList(list)){
+      System.out.println("Cant print from invalid list:");
+      System.exit(0);
   }
-  
-}
+  for(int i = 9;i<size; i++)
+    if(!isValidSSN(list[i]))
+      System.out.println("Invalid ssn:"+lsit[i])
+    else
+      System.out.println(list[i])
+   }
