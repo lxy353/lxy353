@@ -10,17 +10,26 @@ public class SSN {
   public static String readSSN(){
     String ssn;
     ssn = (JoptionPane,showInputDialog(null,"Enter SSN:")); // make sure the ssn's length is 9
-      if(ssn.length()!=9){
-      System.out.println("It must be 9");
-      System.exit(0);
+      if(isValidSSN(ssn)){
+        return ssn;
+      else
+        return null;
       }
-    for(int i = 0;i<9;i++)
-      if(!Character.isDigit(ssn.charAt(i))){      // make sure the ssn is digit 
-      System.out.println("SSN must be have only digits");
+      
+  public static boolean is ValidList(String[] list){
+  if(list == null){
+    System.out.println("Array is null.");
+    System.exit(0);
     }
-    return ssn;
+  if(ssnSize == list.length){
+    System.out.println("Can't store any more SSNs");
+    System.exit(0);
+    }
+    return(true)
   }
   public static void storeSSN(String s, String[] list, int size){
+    if(isValidSSN(s)&& isValidList(list))
+      list[ssnSize++]=s;
   }
   public static void printSSNList(String[] list , int size){
   }
