@@ -1,1 +1,32 @@
-int
+import javax.swing.JOptionPane;
+
+public class SSN1 {
+   static String ssn;
+   static String[] ssnList;  // init
+   static int ssnSize;
+   
+   public static void main(String[] args) {
+      initialize();
+      ssn = readSSN();
+      storeSSN(ssn,ssnList);
+      printSSNList(ssnList,ssnSize);  //main call function
+   }
+   public static void initialize() {
+	   ssn="";
+	   ssnList= new String[10];
+	   ssnSize=0;      
+   }
+   
+   public static String readSSN(){
+	   return(JOptionPane.showInputDialog(null,"Enter SSN:"));  // ins the ssn 
+   }
+   
+   public static void storeSSN(String s, String[] list){
+	   list[ssnSize++]=s;         //store the date 
+   }
+   
+   public static void printSSNList(String[] list, int size) {
+	   for (int i=0;i<size;i++)
+		   System.out.println(list[i]);      // print all index array for ssn
+   }
+} //SSN
