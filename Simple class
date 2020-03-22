@@ -1,0 +1,67 @@
+public class SSN {
+   private String SSNumber;
+    /**
+	    * @param args
+	    */
+	   public static void main(String[] args) {
+	      // TODO Auto-generated method stub
+	      SSN ssn1 = new SSN("123456789");
+	      SSN ssn2 = new SSN("111111111");
+	      
+	      System.out.println("SSN getName:"+ssn1.getClass().getName());
+	      if (ssn1 instanceof SSN)
+	         System.out.println("ssn1 is an SSN");
+	      if (ssn1.getClass().getName().equals("SSN"))
+	         System.out.println("getName equals SSN");
+	      if (ssn1.getClass().equals(ssn2.getClass()))
+	         System.out.println("ssn1 is same class as ssn2");
+	      if (ssn1.getClass().getName().equals(ssn2.getClass().getName()))
+	         System.out.println("ssn1 is same class name as ssn2");
+	   }
+   public SSN (String s) {
+      if (isValidSSN(s) )
+         SSNumber = s;
+      else 
+         throw new IllegalArgumentException(invalidReason(s));
+   }
+   
+   public String toString() {
+      return SSNumber;
+   }
+   
+   public int compareTo(SSN other) {
+      return SSNumber.compareTo(other.toString());
+   }
+   
+   private static boolean isValidSSN(String s) {
+      if (s.length() != 9) 
+         return (false); 
+      
+      for (int i=0;i<9;i++)
+         if (! Character.isDigit(s.charAt(i))) 
+            return(false);
+
+      return (true);
+   } // isValidSSN
+   public boolean isValidSSN() {
+      if (SSNumber.length() != 9) 
+         return (false); 
+      
+      for (int i=0;i<9;i++)
+         if (! Character.isDigit(SSNumber.charAt(i))) 
+            return(false);
+
+      return (true);
+   } // isValidSSN
+   
+   private static String invalidReason(String s) {
+      for (int i=0;i<9;i++)
+         if (! Character.isDigit(s.charAt(i))) 
+            return("SSN must have only digits.");
+      if (s.length() != 9)
+         return("An SSN length must be 9");
+ 
+      return ("There is a serious error if this is printed!");   
+   }  
+}
+	
