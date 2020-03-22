@@ -1,4 +1,0 @@
-public static void initialize(){
-  mySSNGUI = new JFrame();
-  my
-}
