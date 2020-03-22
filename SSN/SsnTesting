@@ -1,0 +1,21 @@
+public class SSNTesting {
+
+   /**
+    * @param args
+    */
+   public static void main(String[] args) {
+      // TODO Auto-generated method stub
+      SSN ssn1 = new SSN("123456789");
+      SSN ssn2 = new SSN("111111111");
+      
+      System.out.println("SSN getName:"+ssn1.getClass().getName());
+      if (ssn1 instanceof SSN)
+         System.out.println("ssn1 is an SSN");
+      if (ssn1.getClass().getName().equals("SSN"))
+         System.out.println("getName equals SSN");
+      if (ssn1.getClass().equals(ssn2.getClass()))
+         System.out.println("ssn1 is same class as ssn2");
+      if (ssn1.getClass().getName().equals(ssn2.getClass().getName()))
+         System.out.println("ssn1 is same class name as ssn2");
+   }
+}
