@@ -1,6 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
-public class SSNJFrame3{
+public class SSNJFrame{
    static final int LIST_SIZE = 10;
    static String ssn;
    static String[] ssnList;
