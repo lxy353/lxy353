@@ -1,0 +1,24 @@
+public class LinkedList {
+   private ListNode first; 
+   private ListNode last; 
+   private int length;
+   
+   public LinkedList () {
+         ListNode ln = new ListNode();
+         first = ln;
+         last = ln;
+         length = 0;
+      }
+   
+   public void append (String s) {
+      ListNode n = new ListNode(s);
+      last.next = n;
+      last = n;
+      length++;
+   }
+   
+   public LinkedListIterator reset()   {
+      return new LinkedListIterator(first.next);
+   } 
+
+}
