@@ -1,0 +1,20 @@
+public class Main {
+
+   /*
+    * Example of using a LinkedListIterator
+    * 
+    */
+   public static void main(String[] args) {
+      String[] words = {"bat","hat","mat","sat","vat"};
+      LinkedList l = new LinkedList();
+      for (int i=0; i<words.length;i++){
+         l.append(words[i]);
+      }
+      LinkedListIterator lli = l.reset();
+      while (lli.hasNext())
+         System.out.println(lli.next());
+      
+
+   }
+
+}
