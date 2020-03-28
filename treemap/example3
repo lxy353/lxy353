@@ -1,0 +1,77 @@
+*
+	Java TreeMap and regex example.
+	This Java TreeMap example demonstrates updating the values in a Map.
+ */
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
+import java.util.Iterator;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class TreeMapRegex {
+
+    /* Count the number of repetitions of numerical sequences in a string.
+     * 
+     * (Tip: Note how this is not a Javadoc because I'm giving an overview of the code inside,
+     * rather than a description of the effect. This is because you're supposed to look at
+     * the code. When writing Javadocs, you should assume that the person reading
+     * won't be able to look inside your methods.)
+     * 
+     * References:
+     * Pattern: http://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html
+     * Matcher: http://docs.oracle.com/javase/7/docs/api/java/util/regex/Matcher.html
+     * m.find(): http://docs.oracle.com/javase/7/docs/api/java/util/regex/Matcher.html#find%28%29
+     * m.group(): http://docs.oracle.com/javase/7/docs/api/java/util/regex/Matcher.html#group%28%29
+     * 
+     */
+    public static void main(String args[]) {
+
+        String myString = 
+                "hello, this 123 is 5643 testz w123ith 25 words"; //the string to check
+        Pattern p = Pattern.compile("\\d+"); //match sequences of digits
+        Matcher m = p.matcher(myString); //a Matcher to find instances of p in myString
+        
+        //Keeps a count of how many times we've seen a certain string
+        TreeMap<String, Integer> treeMap = new TreeMap<String, Integer>();
+
+        //Count the number of digit sequences in the string and store it in the map 
+        while (m.find()) { //While we find a match...
+                    /* Warning: m.find() makes the matcher go to the next
+                     * occurrence of the pattern p every time it's called.
+                     * It's like while(i++ < 5), in that you are checking the
+                     * value, but you are also CHANGING the value. Be careful
+                     * not to call it more times than you need to.
+                     */
+            
+            //Record that we've found a match
+            if (!treeMap.containsKey(m.group()))//if we've never seen this number before 
+                treeMap.put(m.group(), 1);//add it to the map, and initialize its count to 1
+            else {//if it's there already
+                //increment its count by one
+                
+                /* Tip: This code uses autoboxing to use Integers and ints interchangeably.
+                 * Remember that you can't have a map of ints, only of Integers.
+                 * But that gets inconvenient when you want to do arithmetic, so autoboxing
+                 * lets you write it like 
+                 *     treeMap.put(m.group(), treeMap.get(m.group)+1);
+                 * instead of 
+                 *     treeMap.put(m.group(), new Integer(treeMap.get(m.group).intValue()+1));
+                 * 
+                 * See http://www.leepoint.net/notes-java/data/basic_types/autoboxing.html
+                 */
+                int count  = treeMap.get(m.group()); //unboxing the return of get() to an int
+                treeMap.put(m.group(), count+1); //autoboxing count+1 to an Integer
+            }
+        }
+
+        //Print the map iteratively
+        Set set = treeMap.entrySet();
+        Iterator i = set.iterator();
+        while (i.hasNext()) {
+            Map.Entry me = (Map.Entry) i.next();
+            System.out.print(me.getKey() + ": ");
+            System.out.println(me.getValue());
+        }
+    }
+}
