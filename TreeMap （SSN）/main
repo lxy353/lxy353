@@ -1,0 +1,63 @@
+/* Java TreeMap example with SSN.
+ * This example uses a TreeMap with a class we created ourselves.
+ * 
+ * See also: TreeMapFrenchExample.java, with more comments
+ */
+import java.util.Map;
+import java.util.TreeMap;
+import java.util.Set;
+import java.util.Iterator;
+
+public class TreeMapSSNExample {
+
+    public static void main(String args[]) {
+
+        //Maps social security numbers to the names of their owners
+        TreeMap<SSN, String> treeMap = new TreeMap<>(new SSNComparator());
+                /* SSN doesn't implement Comparable<SSN> so we need to tell the map 
+                 * how we want to compare two SSNs. This is necessary because TreeMap uses
+                 *  comparison to do fast lookups.
+                 *  
+                 * Tip: Try removing the comparator parameter and running this as
+                 *         TreeMap<SSN, Integer> treeMap = new TreeMap<>();
+                 */
+        
+        
+        //Insert some social security numbers, and the name they're associated with
+        SSN numbers[] = { new SSN("123456789"), new SSN("945621345"),
+                new SSN("765499999") };
+        treeMap.put(numbers[0], "James Gosling"); //associate number[0] with James Gosling
+        treeMap.put(numbers[1], "Mike Sheridan");
+        treeMap.put(numbers[2], "Patrice Notting"); //oops, that was the wrong name
+        treeMap.put(numbers[2], "Patrick Naughton"); //update it with the right one 
+
+        
+        //Using get() to ask the map which name a social security number is associated with
+        String myData = treeMap.get(numbers[0]);
+        System.out.println(myData);
+        
+        //What is printed here? We've associated two different names to numbers[2].
+        myData = treeMap.get(numbers[2]);
+        System.out.println(myData); //Should print the LAST one; the other is lost!
+        
+        
+        //Print the map iteratively
+        /* Tip: Here we use a for-each loop to simplify the iteration.
+         * Compare with the way used in TreeMapExample.java and TreeMapFrenchExample.java.
+         * 
+         * Warning: We must get the entrySet view because maps are not Iterable
+         * (they do not have an iterator() method).
+         * 
+         * References:
+         * foreach:
+         * - http://stackoverflow.com/questions/85190/how-does-the-java-for-each-loop-work
+         * - http://docs.oracle.com/javase/1.5.0/docs/guide/language/foreach.html
+         * entrySet(): http://docs.oracle.com/javase/7/docs/api/java/util/Map.html#entrySet%28%29
+         */
+        for(Map.Entry me : treeMap.entrySet()){ //for each entry in the map's entry set
+            //print it
+            System.out.print(me.getKey() + ": ");
+            System.out.println(me.getValue());
+        }
+    }
+}
