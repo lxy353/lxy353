@@ -1,0 +1,26 @@
+LinkedList<String> 1List = new LinkedList<String>();
+
+1List.add("cat");
+1List.add("dog");
+1List.add(0,"bat");
+
+1List.remove("dog");
+1List.remove(0);
+
+  for(String s:1List)
+    System.out.println(s);
+    
+1List.set(1,"rat");
+int p =1List.indexOf("cat");
+String s = 1List.get(2);
+int items = 1List.size;
+1List.contains("cat");
+
+1List.addALL(aList);
+
+1List.addFrist("hat");
+
+1List.addLast("mat");
+
+String s = 1List.getFirst();
+String s =1List.getLast();
