@@ -1,0 +1,15 @@
+import java.io.File;
+import javax.swing.*;
+
+public class SingleFile {
+   public static void main (String args[]){
+   JFileChooser fileChooser = new JFileChooser();
+   fileChooser.showOpenDialog(null);
+   File myFile = fileChooser.getSelectedFile();
+   System.out.println("getName(): "+myFile.getName());
+   System.out.println("getParent(): "+myFile.getParent());
+   System.out.println("getPath(): "+myFile.getPath());
+   System.out.println("lastModified(): "+myFile.lastModified());
+   System.out.println("length(): "+myFile.length());
+   }
+}
