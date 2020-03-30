@@ -1,0 +1,35 @@
+
+public class Fibonacci {
+
+   public static void main(String[] args) {
+      int[] testValues = {4,6,1,0,9,18};
+      int n;
+      for (int i=0; i<testValues.length; i++) {
+         n=testValues[i];
+         System.out.println("The "+n+suffix(n)+" Fibonacci number is "+fibonacci(n));
+      }
+   }
+   private static int fibonacci (int n) {
+      if (n==0)
+         return 0;
+      if
+         (n==1)
+         return 1;
+      return fibonacci(n-1)+fibonacci(n-2);
+   }
+   private static String suffix (int x) {
+      switch (x%10) {
+      case 0: return "th";
+      case 1: return "st";
+      case 2: return "nd";
+      case 3: return "rd";
+      case 4: return "th";
+      case 5: return "th";
+      case 6: return "th";
+      case 7: return "th";
+      case 8: return "th";
+      case 9: return "th";
+      }
+      return "";
+   }
+}
