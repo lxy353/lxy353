@@ -26,15 +26,24 @@ abstract class TemperatureGUI implements java.util.Observer {
       temperatureFrame.setVisible(true); 
    
    public void setDisplay(String s){ 
-      display.setText(s);}
+      display.setText(s);
+      }
    public double getDisplay()  {  
       return Double.valueOf(display.getText()).doubleValue();
    }
    public void addDisplayListener(ActionListener a){ 
-   display.addActionListener(a);}
+    display.addActionListener(a);
+    }
 
    public void addUpListener(ActionListener a){
-   upButton.addActionListener(a);}
+      upButton.addActionListener(a);
+      }
 
    public void addDownListener(ActionListener a){
-   downButton.addActionListener(a);}
+       downButton.addActionListener(a);
+       }
+   actionPerformed from the DisplayListener class;
+      public void actionPerformed(ActionEvent e){
+      double valie = fg.getDispaly();
+      model.setF(value);
+      }
