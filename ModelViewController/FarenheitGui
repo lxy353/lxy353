@@ -1,0 +1,21 @@
+import java.awt.*;
+import java.awt.event.*;
+import java.util.Observable;
+
+public class FarenheitGUI extends TemperatureGUI {
+   
+   public FarenheitGUI(TemperatureModel model, int h, int v) {  
+      super("Farenheit Temperature", model, h, v);
+      setDisplay(""+model.getF());
+      addUpListener(new UpListener(model));
+      addDownListener(new DownListener(model));
+      addDisplayListener(new DisplayListener(model,this));
+   }
+   
+   public void update(Observable t, Object o) 
+	// automatically called when the model is changed
+   {  
+      setDisplay("" + model().getF());
+   }
+
+}
