@@ -6,8 +6,7 @@ public class Candle
 	private float price;
 	private boolean lit;
 
-	public Candle(int height, int width, float price)
-	{ // constructor
+	public Candle(int height, int width, float price){ // constructor
 		super();
 		this.height = height;
 		this.width = width;
@@ -15,48 +14,39 @@ public class Candle
 		this.lit = false;
 	}
 
-	public int getHeight()
-	{
+	public int getHeight(){
 		return height;
 	}
 
-	public void setHeight(int height)
-	{
+	public void setHeight(int height){
 		this.height = height;
 	}
 
-	public int getWidth()
-	{
+	public int getWidth(){
 		return width;
 	}
 
-	public void setWidth(int width)
-	{
+	public void setWidth(int width){
 		this.width = width;
 	}
 
-	public float getPrice()
-	{
+	public float getPrice(){
 		return price;
 	}
 
-	public void setPrice(float price)
-	{
+	public void setPrice(float price){
 		this.price = price;
 	}
 
-	public boolean isLit()
-	{
+	public boolean isLit(){
 		return lit;
 	}
 
-	public void setLit(boolean lit)
-	{
+	public void setLit(boolean lit){
 		this.lit = lit;
 	}
 
-	public String toString()
-	{ // using the toString method to get h w and p
+	public String toString(){ // using the toString method to get h w and p
 		return height + "," + width + "," + price;
 	}
 
