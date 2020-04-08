@@ -1,6 +1,5 @@
 
-public class Candle
-{
+public class Candle{
 	private int height;
 	private int width;
 	private float price;
